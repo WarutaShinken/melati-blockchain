@@ -18,9 +18,9 @@ fi
 if [ "$(uname -m)" = "armv7l" ]; then
   echo ""
 	echo "WARNING:"
-	echo "The Chia Blockchain requires a 64 bit OS and this is 32 bit armv7l"
+	echo "The Melati Blockchain requires a 64 bit OS and this is 32 bit armv7l"
 	echo "For more information, see"
-	echo "https://github.com/Chia-Network/melati-blockchain/wiki/Raspberry-Pi"
+	echo "https://github.com/Melati-Network/melati-blockchain/wiki/Raspberry-Pi"
 	echo "Exiting."
 	exit 1
 fi
@@ -116,8 +116,8 @@ python -m pip install --upgrade pip
 python -m pip install wheel
 #if [ "$INSTALL_PYTHON_VERSION" = "3.8" ]; then
 # This remains in case there is a diversion of binary wheels
-python -m pip install --extra-index-url https://pypi.melati.net/simple/ miniupnpc==2.2.2
-python -m pip install -e . --extra-index-url https://pypi.melati.net/simple/
+python -m pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc==2.2.2
+python -m pip install -e . --extra-index-url https://pypi.chia.net/simple/
 
 echo ""
 echo "Chia blockchain install.sh complete."

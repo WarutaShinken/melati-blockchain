@@ -1,6 +1,6 @@
 from typing import Tuple
 
-from melativdf import prove
+from chiavdf import prove
 
 from melati.consensus.constants import ConsensusConstants
 from melati.types.blockchain_format.classgroup import ClassgroupElement

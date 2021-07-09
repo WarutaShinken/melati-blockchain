@@ -5,7 +5,7 @@ from enum import IntEnum
 from typing import Optional
 from functools import lru_cache
 
-from melativdf import create_discriminant, verify_n_wesolowski
+from chiavdf import create_discriminant, verify_n_wesolowski
 
 from melati.consensus.constants import ConsensusConstants
 from melati.types.blockchain_format.classgroup import ClassgroupElement

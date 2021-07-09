@@ -6,28 +6,28 @@ from typing import Dict, Optional, List, Any, Set, Tuple, Union
 
 from blspy import AugSchemeMPL, G1Element
 from secrets import token_bytes
-from chia.protocols import wallet_protocol
-from chia.protocols.wallet_protocol import RespondAdditions, RejectAdditionsRequest
-from chia.server.outbound_message import NodeType
-from chia.types.blockchain_format.coin import Coin
-from chia.types.coin_solution import CoinSolution
-from chia.types.announcement import Announcement
-from chia.types.blockchain_format.program import Program
-from chia.types.spend_bundle import SpendBundle
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.wallet.util.transaction_type import TransactionType
-from chia.util.ints import uint64, uint32, uint8
+from melati.protocols import wallet_protocol
+from melati.protocols.wallet_protocol import RespondAdditions, RejectAdditionsRequest
+from melati.server.outbound_message import NodeType
+from melati.types.blockchain_format.coin import Coin
+from melati.types.coin_solution import CoinSolution
+from melati.types.announcement import Announcement
+from melati.types.blockchain_format.program import Program
+from melati.types.spend_bundle import SpendBundle
+from melati.types.blockchain_format.sized_bytes import bytes32
+from melati.wallet.util.transaction_type import TransactionType
+from melati.util.ints import uint64, uint32, uint8
 
-from chia.wallet.did_wallet.did_info import DIDInfo
-from chia.wallet.lineage_proof import LineageProof
-from chia.wallet.transaction_record import TransactionRecord
-from chia.wallet.util.wallet_types import WalletType
-from chia.wallet.wallet import Wallet
-from chia.wallet.wallet_coin_record import WalletCoinRecord
-from chia.wallet.wallet_info import WalletInfo
-from chia.wallet.derivation_record import DerivationRecord
-from chia.wallet.did_wallet import did_wallet_puzzles
-from chia.wallet.derive_keys import master_sk_to_wallet_sk
+from melati.wallet.did_wallet.did_info import DIDInfo
+from melati.wallet.lineage_proof import LineageProof
+from melati.wallet.transaction_record import TransactionRecord
+from melati.wallet.util.wallet_types import WalletType
+from melati.wallet.wallet import Wallet
+from melati.wallet.wallet_coin_record import WalletCoinRecord
+from melati.wallet.wallet_info import WalletInfo
+from melati.wallet.derivation_record import DerivationRecord
+from melati.wallet.did_wallet import did_wallet_puzzles
+from melati.wallet.derive_keys import master_sk_to_wallet_sk
 
 
 class DIDWallet:

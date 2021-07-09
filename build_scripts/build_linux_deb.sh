@@ -33,7 +33,7 @@ mkdir dist
 
 echo "Create executables with pyinstaller"
 pip install pyinstaller==4.2
-SPEC_FILE=$(python -c 'import melati; print(melati.PYINSTALLER_SPEC_PATH)')
+SPEC_FILE=$(python -c 'import melati; print(MELATI.PYINSTALLER_SPEC_PATH)')
 pyinstaller --log-level=INFO "$SPEC_FILE"
 LAST_EXIT_CODE=$?
 if [ "$LAST_EXIT_CODE" -ne 0 ]; then

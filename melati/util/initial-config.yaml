@@ -11,9 +11,9 @@ network_overrides: &network_overrides
   constants:
     mainnet:
       NETWORK_TYPE: 0
-      GENESIS_CHALLENGE: ccd5bb71183532bff220ba46c268991a3ff07eb358e8255a65c30a2dce0e5fbb
-      GENESIS_PRE_FARM_POOL_PUZZLE_HASH: "d23da14695a188ae5708dd152263c4db883eb27edeb936178d4d988b8f3ce5fc"
-      GENESIS_PRE_FARM_FARMER_PUZZLE_HASH: "3d8765d3a597ec1d99663f6c9816d915b9f68613ac94009884c4addaefcce6af"
+      GENESIS_CHALLENGE: 375220d1b4607a3bf5a458da5354fd21333849130f2f0dbbc1d61e4a7602ddd9
+      GENESIS_PRE_FARM_POOL_PUZZLE_HASH: "0x0ba01f1824657161e6a0cdbc35e89f85104b671cbb0a76811b54875960dbf2cf"
+      GENESIS_PRE_FARM_FARMER_PUZZLE_HASH: "0x0ba01f1824657161e6a0cdbc35e89f85104b671cbb0a76811b54875960dbf2cf"
     testnet0:
       MIN_PLOT_SIZE: 18
       GENESIS_CHALLENGE: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
@@ -97,9 +97,9 @@ private_ssl_ca:
   crt: "config/ssl/ca/private_ca.crt"
   key: "config/ssl/ca/private_ca.key"
 
-chia_ssl_ca:
-  crt: "config/ssl/ca/chia_ca.crt"
-  key: "config/ssl/ca/chia_ca.key"
+melati_ssl_ca:
+  crt: "config/ssl/ca/melati_ca.crt"
+  key: "config/ssl/ca/melati_ca.key"
 
 
 daemon_ssl:
@@ -145,9 +145,9 @@ harvester:
     crt: "config/ssl/ca/private_ca.crt"
     key: "config/ssl/ca/private_ca.key"
 
-  chia_ssl_ca:
-    crt: "config/ssl/ca/chia_ca.crt"
-    key: "config/ssl/ca/chia_ca.key"
+  melati_ssl_ca:
+    crt: "config/ssl/ca/melati_ca.crt"
+    key: "config/ssl/ca/melati_ca.key"
 
 pool:
   # Replace this with a real puzzle hash
@@ -296,7 +296,7 @@ full_node:
   weight_proof_timeout: 360
 
   # when enabled, the full node will print a pstats profile to the root_dir/profile every second
-  # analyze with chia/utils/profiler.py
+  # analyze with melati/utils/profiler.py
   enable_profiler: False
 
   # List of trusted DNS seeders to bootstrap from.

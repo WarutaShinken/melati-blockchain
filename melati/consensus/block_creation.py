@@ -5,7 +5,7 @@ from typing import Callable, Dict, List, Optional, Tuple
 
 import blspy
 from blspy import G1Element, G2Element
-from melatibip158 import PyBIP158
+from chiabip158 import PyBIP158
 
 from melati.consensus.block_record import BlockRecord
 from melati.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward

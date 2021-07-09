@@ -1,5 +1,5 @@
 from typing import List, Tuple
-from melatibip158 import PyBIP158
+from chiabip158 import PyBIP158
 
 from melati.types.blockchain_format.coin import Coin
 from melati.types.blockchain_format.sized_bytes import bytes32
