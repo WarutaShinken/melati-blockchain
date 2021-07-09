@@ -4,10 +4,10 @@
 # from secrets import token_bytes
 # import aiosqlite
 # import pytest
-# from chia.util.ints import uint32, uint64, uint128
-# from chia.wallet.wallet_coin_record import WalletCoinRecord
-# from chia.wallet.util.wallet_types import WalletType
-# from chia.types.coin import Coin
+# from melati.util.ints import uint32, uint64, uint128
+# from melati.wallet.wallet_coin_record import WalletCoinRecord
+# from melati.wallet.util.wallet_types import WalletType
+# from melati.types.coin import Coin
 #
 #
 # @pytest.fixture(scope="module")

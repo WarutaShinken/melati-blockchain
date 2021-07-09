@@ -1,16 +1,16 @@
 import asyncio
 import pytest
 import time
-from chia.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from chia.protocols.full_node_protocol import RespondBlock
-from chia.server.server import ChiaServer
-from chia.simulator.simulator_protocol import FarmNewBlockProtocol, ReorgProtocol
-from chia.types.peer_info import PeerInfo
-from chia.util.ints import uint16, uint32, uint64
-from chia.wallet.util.transaction_type import TransactionType
-from chia.wallet.transaction_record import TransactionRecord
-from chia.wallet.wallet_node import WalletNode
-from chia.wallet.wallet_state_manager import WalletStateManager
+from melati.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from melati.protocols.full_node_protocol import RespondBlock
+from melati.server.server import ChiaServer
+from melati.simulator.simulator_protocol import FarmNewBlockProtocol, ReorgProtocol
+from melati.types.peer_info import PeerInfo
+from melati.util.ints import uint16, uint32, uint64
+from melati.wallet.util.transaction_type import TransactionType
+from melati.wallet.transaction_record import TransactionRecord
+from melati.wallet.wallet_node import WalletNode
+from melati.wallet.wallet_state_manager import WalletStateManager
 from tests.setup_nodes import self_hostname, setup_simulators_and_wallets
 from tests.time_out_assert import time_out_assert, time_out_assert_not_none
 from tests.wallet.cc_wallet.test_cc_wallet import tx_in_pool

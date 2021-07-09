@@ -6,14 +6,14 @@ import io
 from clvm_tools import binutils
 from pytest import raises
 
-from chia.protocols.wallet_protocol import RespondRemovals
-from chia.types.blockchain_format.coin import Coin
-from chia.types.blockchain_format.program import Program
-from chia.types.blockchain_format.sized_bytes import bytes32
-from chia.types.full_block import FullBlock
-from chia.types.weight_proof import SubEpochChallengeSegment
-from chia.util.ints import uint8, uint32
-from chia.util.streamable import (
+from melati.protocols.wallet_protocol import RespondRemovals
+from melati.types.blockchain_format.coin import Coin
+from melati.types.blockchain_format.program import Program
+from melati.types.blockchain_format.sized_bytes import bytes32
+from melati.types.full_block import FullBlock
+from melati.types.weight_proof import SubEpochChallengeSegment
+from melati.util.ints import uint8, uint32
+from melati.util.streamable import (
     Streamable,
     streamable,
     parse_bool,

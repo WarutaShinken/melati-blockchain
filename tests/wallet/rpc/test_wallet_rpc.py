@@ -1,23 +1,23 @@
 import asyncio
-from chia.util.config import load_config, save_config
+from melati.util.config import load_config, save_config
 import logging
 from pathlib import Path
 
 import pytest
 
-from chia.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
-from chia.rpc.full_node_rpc_api import FullNodeRpcApi
-from chia.rpc.full_node_rpc_client import FullNodeRpcClient
-from chia.rpc.rpc_server import start_rpc_server
-from chia.rpc.wallet_rpc_api import WalletRpcApi
-from chia.rpc.wallet_rpc_client import WalletRpcClient
-from chia.simulator.simulator_protocol import FarmNewBlockProtocol
-from chia.types.peer_info import PeerInfo
-from chia.util.bech32m import encode_puzzle_hash
-from chia.consensus.coinbase import create_puzzlehash_for_pk
-from chia.wallet.derive_keys import master_sk_to_wallet_sk
-from chia.util.ints import uint16, uint32
-from chia.wallet.transaction_record import TransactionRecord
+from melati.consensus.block_rewards import calculate_base_farmer_reward, calculate_pool_reward
+from melati.rpc.full_node_rpc_api import FullNodeRpcApi
+from melati.rpc.full_node_rpc_client import FullNodeRpcClient
+from melati.rpc.rpc_server import start_rpc_server
+from melati.rpc.wallet_rpc_api import WalletRpcApi
+from melati.rpc.wallet_rpc_client import WalletRpcClient
+from melati.simulator.simulator_protocol import FarmNewBlockProtocol
+from melati.types.peer_info import PeerInfo
+from melati.util.bech32m import encode_puzzle_hash
+from melati.consensus.coinbase import create_puzzlehash_for_pk
+from melati.wallet.derive_keys import master_sk_to_wallet_sk
+from melati.util.ints import uint16, uint32
+from melati.wallet.transaction_record import TransactionRecord
 from tests.setup_nodes import bt, setup_simulators_and_wallets, self_hostname
 from tests.time_out_assert import time_out_assert
 
