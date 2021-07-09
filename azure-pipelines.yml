@@ -38,7 +38,7 @@ steps:
   # Install an Apple certificate required to build on a macOS agent machine
   - task: InstallAppleCertificate@2
     inputs:
-      certSecureFile: 'chia-apple-dev-id-app.p12'
+      certSecureFile: 'melati-apple-dev-id-app.p12'
       certPwd: $(CHIA_APPLE_DEV_ID_APP_PASS)
       keychain: temp
       deleteCert: true
@@ -60,7 +60,7 @@ steps:
       . ./activate
       clang --version
       pip wheel --use-pep517 --extra-index-url https://pypi.chia.net/simple/ --wheel-dir=wheels .
-      pip install --no-index --find-links=./wheels/ chia-blockchain
+      pip install --no-index --find-links=./wheels/ melati-blockchain
     displayName: "Build and install wheels"
 
   - task: NodeTool@0
@@ -138,6 +138,6 @@ steps:
       cd $(System.DefaultWorkingDirectory)/build_scripts/
       export CHIA_TAG=$(<version.txt)
       export REPO_NAME=$(echo $(Build.Repository.Name) | cut -d'/' -f 2)
-      curl -s -XPOST -H "Authorization: Bearer $(GLUE_ACCESS_TOKEN)" --data "{\"chia_ref\": \"$CHIA_TAG\"}" $(GLUE_API_URL)/api/v1/${REPO_NAME}/${CHIA_TAG}/success/build-macos
+      curl -s -XPOST -H "Authorization: Bearer $(GLUE_ACCESS_TOKEN)" --data "{\"melati_ref\": \"$CHIA_TAG\"}" $(GLUE_API_URL)/api/v1/${REPO_NAME}/${CHIA_TAG}/success/build-macos
     displayName: "Mark installer complete"
     condition: and(succeeded(), contains(variables['build.sourceBranch'], 'refs/tags/'))
