@@ -4,7 +4,7 @@ from melati.introducer.introducer import Introducer
 from melati.protocols.introducer_protocol import RequestPeersIntroducer, RespondPeersIntroducer
 from melati.protocols.protocol_message_types import ProtocolMessageTypes
 from melati.server.outbound_message import Message, make_msg
-from melati.server.ws_connection import WSChiaConnection
+from melati.server.ws_connection import WSMelatiConnection
 from melati.types.peer_info import TimestampedPeerInfo
 from melati.util.api_decorators import api_request, peer_required
 from melati.util.ints import uint64
@@ -24,7 +24,7 @@ class IntroducerAPI:
     async def request_peers_introducer(
         self,
         request: RequestPeersIntroducer,
-        peer: WSChiaConnection,
+        peer: WSMelatiConnection,
     ) -> Optional[Message]:
         max_peers = self.introducer.max_peers_to_send
         if self.introducer.server is None or self.introducer.server.introducer_peers is None:

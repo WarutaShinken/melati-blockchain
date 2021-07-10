@@ -27,7 +27,7 @@ from melati.protocols.pool_protocol import (
 )
 from melati.protocols.protocol_message_types import ProtocolMessageTypes
 from melati.server.outbound_message import NodeType, make_msg
-from melati.server.ws_connection import WSChiaConnection
+from melati.server.ws_connection import WSMelatiConnection
 from melati.types.blockchain_format.proof_of_space import ProofOfSpace
 from melati.types.blockchain_format.sized_bytes import bytes32
 from melati.util.bech32m import decode_puzzle_hash
@@ -148,7 +148,7 @@ class Farmer:
     def _set_state_changed_callback(self, callback: Callable):
         self.state_changed_callback = callback
 
-    async def on_connect(self, peer: WSChiaConnection):
+    async def on_connect(self, peer: WSMelatiConnection):
         # Sends a handshake to the harvester
         self.state_changed("add_connection", {})
         handshake = harvester_protocol.HarvesterHandshake(
@@ -172,7 +172,7 @@ class Farmer:
             ErrorResponse(uint16(PoolErrorCode.REQUEST_FAILED.value), error_message).to_json_dict()
         )
 
-    def on_disconnect(self, connection: ws.WSChiaConnection):
+    def on_disconnect(self, connection: ws.WSMelatiConnection):
         self.log.info(f"peer disconnected {connection.get_peer_info()}")
         self.state_changed("close_connection", {})
 
@@ -535,7 +535,7 @@ class Farmer:
                         "Harvester did not respond. You might need to update harvester to the latest version"
                     )
 
-    async def get_cached_harvesters(self, connection: WSChiaConnection) -> Optional[Tuple[Dict, float]]:
+    async def get_cached_harvesters(self, connection: WSMelatiConnection) -> Optional[Tuple[Dict, float]]:
         host_cache = self.harvester_cache.get(connection.peer_host)
         if host_cache is None:
             return None

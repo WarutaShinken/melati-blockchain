@@ -28,8 +28,8 @@ from melati.protocols.wallet_protocol import (
 )
 from melati.server.node_discovery import WalletPeers
 from melati.server.outbound_message import Message, NodeType, make_msg
-from melati.server.server import ChiaServer
-from melati.server.ws_connection import WSChiaConnection
+from melati.server.server import MelatiServer
+from melati.server.ws_connection import WSMelatiConnection
 from melati.types.blockchain_format.coin import Coin, hash_coin_list
 from melati.types.blockchain_format.sized_bytes import bytes32
 from melati.types.coin_solution import CoinSolution
@@ -59,7 +59,7 @@ class WalletNode:
     key_config: Dict
     config: Dict
     constants: ConsensusConstants
-    server: Optional[ChiaServer]
+    server: Optional[MelatiServer]
     log: logging.Logger
     wallet_peers: WalletPeers
     # Maintains the state of the wallet (blockchain and transactions), handles DB connections
@@ -319,7 +319,7 @@ class WalletNode:
 
         return messages
 
-    def set_server(self, server: ChiaServer):
+    def set_server(self, server: MelatiServer):
         self.server = server
         DNS_SERVERS_EMPTY: list = []
         # TODO: Perhaps use a different set of DNS seeders for wallets, to split the traffic.
@@ -336,7 +336,7 @@ class WalletNode:
             self.log,
         )
 
-    async def on_connect(self, peer: WSChiaConnection):
+    async def on_connect(self, peer: WSMelatiConnection):
         if self.wallet_state_manager is None or self.backup_initialized is False:
             return None
         messages_peer_ids = await self._messages_to_resend()
@@ -381,7 +381,7 @@ class WalletNode:
                 return True
         return False
 
-    async def complete_blocks(self, header_blocks: List[HeaderBlock], peer: WSChiaConnection):
+    async def complete_blocks(self, header_blocks: List[HeaderBlock], peer: WSMelatiConnection):
         if self.wallet_state_manager is None:
             return None
         header_block_records: List[HeaderBlockRecord] = []
@@ -431,7 +431,7 @@ class WalletNode:
                 else:
                     self.log.debug(f"Result: {result}")
 
-    async def new_peak_wallet(self, peak: wallet_protocol.NewPeakWallet, peer: WSChiaConnection):
+    async def new_peak_wallet(self, peak: wallet_protocol.NewPeakWallet, peer: WSMelatiConnection):
         if self.wallet_state_manager is None:
             return
 
@@ -619,7 +619,7 @@ class WalletNode:
             self.log.info("Not performing sync, already caught up.")
             return None
 
-        peers: List[WSChiaConnection] = self.server.get_full_node_connections()
+        peers: List[WSMelatiConnection] = self.server.get_full_node_connections()
         if len(peers) == 0:
             self.log.info("No peers to sync to")
             return None
@@ -662,7 +662,7 @@ class WalletNode:
 
     async def fetch_blocks_and_validate(
         self,
-        peer: WSChiaConnection,
+        peer: WSMelatiConnection,
         height_start: uint32,
         height_end: uint32,
         fork_point_with_peak: Optional[uint32],
@@ -915,7 +915,7 @@ class WalletNode:
         return additional_coin_spends
 
     async def get_additions(
-        self, peer: WSChiaConnection, block_i, additions: Optional[List[bytes32]], get_all_additions: bool = False
+        self, peer: WSMelatiConnection, block_i, additions: Optional[List[bytes32]], get_all_additions: bool = False
     ) -> Optional[List[Coin]]:
         if (additions is not None and len(additions) > 0) or get_all_additions:
             if get_all_additions:
@@ -949,7 +949,7 @@ class WalletNode:
             return []  # No added coins
 
     async def get_removals(
-        self, peer: WSChiaConnection, block_i, additions, removals, request_all_removals=False
+        self, peer: WSMelatiConnection, block_i, additions, removals, request_all_removals=False
     ) -> Optional[List[Coin]]:
         assert self.wallet_state_manager is not None
         # Check if we need all removals

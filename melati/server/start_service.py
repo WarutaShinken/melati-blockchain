@@ -16,7 +16,7 @@ except ImportError:
 
 from melati.rpc.rpc_server import start_rpc_server
 from melati.server.outbound_message import NodeType
-from melati.server.server import ChiaServer
+from melati.server.server import MelatiServer
 from melati.server.upnp import UPnP
 from melati.types.peer_info import PeerInfo
 from melati.util.melati_logging import initialize_logging
@@ -80,7 +80,7 @@ class Service:
         inbound_rlp = self.config.get("inbound_rate_limit_percent")
         outbound_rlp = self.config.get("outbound_rate_limit_percent")
         assert inbound_rlp and outbound_rlp
-        self._server = ChiaServer(
+        self._server = MelatiServer(
             advertised_port,
             node,
             peer_api,
@@ -226,7 +226,7 @@ class Service:
 
         self._log.info("Waiting for socket to be closed (if opened)")
 
-        self._log.info("Waiting for ChiaServer to be closed")
+        self._log.info("Waiting for MelatiServer to be closed")
         await self._server.await_closed()
 
         if self._rpc_close_task:

@@ -59,7 +59,7 @@ from melati.wallet.wallet_puzzle_store import WalletPuzzleStore
 from melati.wallet.wallet_sync_store import WalletSyncStore
 from melati.wallet.wallet_transaction_store import WalletTransactionStore
 from melati.wallet.wallet_user_store import WalletUserStore
-from melati.server.server import ChiaServer
+from melati.server.server import MelatiServer
 from melati.wallet.did_wallet.did_wallet import DIDWallet
 
 
@@ -107,7 +107,7 @@ class WalletStateManager:
     interested_store: WalletInterestedStore
     pool_store: WalletPoolStore
     weight_proof_handler: Any
-    server: ChiaServer
+    server: MelatiServer
     root_path: Path
 
     @staticmethod
@@ -116,7 +116,7 @@ class WalletStateManager:
         config: Dict,
         db_path: Path,
         constants: ConsensusConstants,
-        server: ChiaServer,
+        server: MelatiServer,
         root_path: Path,
         name: str = None,
     ):
