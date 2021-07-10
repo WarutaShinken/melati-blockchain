@@ -185,9 +185,9 @@ class FullNode:
             default_port = None
         if "dns_servers" in self.config:
             dns_servers = self.config["dns_servers"]
-        elif self.config["port"] == 8444:
+        elif self.config["port"] == 2444:
             # If `dns_servers` misses from the `config`, hardcode it if we're running mainnet.
-            dns_servers.append("dns-introducer.melati.net")
+            dns_servers.append("192.168.1.104")
         try:
             self.full_node_peers = FullNodePeers(
                 self.server,
