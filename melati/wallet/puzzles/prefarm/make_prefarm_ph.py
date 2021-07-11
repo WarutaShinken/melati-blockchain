@@ -8,8 +8,8 @@ from melati.util.bech32m import decode_puzzle_hash, encode_puzzle_hash
 from melati.util.condition_tools import parse_sexp_to_conditions
 from melati.util.ints import uint32
 
-address1 = "xmx1pwsp7xpyv4ckre4qek7rt6yls5gykecuhv98dqgm2jr4jcxm7t8s0kweej"  # Gene wallet (m/12381/8444/2/42):
-address2 = "xmx1pwsp7xpyv4ckre4qek7rt6yls5gykecuhv98dqgm2jr4jcxm7t8s0kweej"  # Rifo address (m/12381/8444/2/0)
+address1 = "xmx1zg6zaz9rk8dc7dgs472wcd22ys0rm7yl5juwxltrgtycrp6djrhqncxwzu"  # Gene wallet (m/12381/2444/2/42):
+address2 = "xmx1v7at40t52mqkj6gw79ukjcjs3ltpw3h6h6ed42y8gvlepsaxkl4s57lk7p"  # Rifo address (m/12381/2444/2/0)
 
 ph1 = decode_puzzle_hash(address1)
 ph2 = decode_puzzle_hash(address2)

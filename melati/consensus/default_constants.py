@@ -18,7 +18,7 @@ testnet_kwargs = {
     "EPOCH_BLOCKS": 4608,  # The number of blocks per epoch, mainnet 4608. Must be multiple of SUB_EPOCH_SB
     "SIGNIFICANT_BITS": 8,  # The number of bits to look at in difficulty and min iters. The rest are zeroed
     "DISCRIMINANT_SIZE_BITS": 1024,  # Max is 1024 (based on ClassGroupElement int size)
-    "NUMBER_ZERO_BITS_PLOT_FILTER": 1,  # H(plot signature of the challenge) must start with these many zeroes
+    "NUMBER_ZERO_BITS_PLOT_FILTER": 9,  # H(plot signature of the challenge) must start with these many zeroes
     "MIN_PLOT_SIZE": 32,  # 32 for mainnet
     "MAX_PLOT_SIZE": 50,
     "SUB_SLOT_TIME_TARGET": 600,  # The target number of seconds per slot, mainnet 600
@@ -32,10 +32,10 @@ testnet_kwargs = {
     # Forks of melati should change this value to provide replay attack protection. This is set to mainnet genesis chall
     "AGG_SIG_ME_ADDITIONAL_DATA": bytes.fromhex("ccd5bb71183532bff220ba46c268991a3ff07eb358e8255a65c30a2dce0e5fbb"),
     "GENESIS_PRE_FARM_POOL_PUZZLE_HASH": bytes.fromhex(
-        "84f07ea152ac68e16166a88248c459efe1beb2b38167b1ed712b318c99e2c6ae10599e7621c760680b9defbaa5438930"
+        "a8be46842b2790fa8f5951cf063983dd2e4df860fe067d4c6a27c510a40fbafeac85886d2bfa00d27c18121c17fd9cb8"
     ),
     "GENESIS_PRE_FARM_FARMER_PUZZLE_HASH": bytes.fromhex(
-        "b88af1419dc1bfe1de98d320c074217e3731f2c29569ec481d45fe5427783c5d5ee30481db18de0e4e15805eed81d367"
+        "a9b1f98e56e8c556b26a5ec825c3b327b1932054de5130fa01d9304e87623c92c94fc920032c79d6e326378fb07e8686"
     ),
     "MAX_VDF_WITNESS_SIZE": 64,
     # Size of mempool = 50x the size of block
