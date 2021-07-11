@@ -1,7 +1,7 @@
 [submodule "chia-blockchain-gui"]
 	path = melati-blockchain-gui
 	url = https://github.com/Melati-Network/melati-blockchain-gui.git
-	branch = pools
+	branch = main
 [submodule "mozilla-ca"]
 	path = mozilla-ca
 	url = https://github.com/Melati-Network/mozilla-ca.git
