@@ -120,12 +120,10 @@ python -m pip install --extra-index-url https://pypi.chia.net/simple/ miniupnpc=
 python -m pip install -e . --extra-index-url https://pypi.chia.net/simple/
 
 echo ""
-echo "Chia blockchain install.sh complete."
-echo "For assistance join us on Keybase in the #testnet chat channel:"
-echo "https://keybase.io/team/melati_network.public"
-echo ""
+echo "Melati blockchain install.sh complete."
+
 echo "Try the Quick Start Guide to running melati-blockchain:"
-echo "https://github.com/Chia-Network/melati-blockchain/wiki/Quick-Start-Guide"
+echo "https://github.com/Melati-Network/melati-blockchain/wiki/Quick-Start-Guide"
 echo ""
 echo "To install the GUI type 'sh install-gui.sh' after '. ./activate'."
 echo ""
