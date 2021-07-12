@@ -21,7 +21,7 @@ if [ ! "$MELATI_INSTALLER_VERSION" ]; then
 	echo "WARNING: No environment variable MELATI_INSTALLER_VERSION set. Using 0.0.0."
 	MELATI_INSTALLER_VERSION="0.0.0"
 fi
-echo "Chia Installer Version is: $MELATI_INSTALLER_VERSION"
+echo "Melati Installer Version is: $MELATI_INSTALLER_VERSION"
 
 echo "Installing npm and electron packagers"
 npm install electron-packager -g
@@ -56,7 +56,7 @@ if [ "$LAST_EXIT_CODE" -ne 0 ]; then
 fi
 
 electron-packager . melati-blockchain --asar.unpack="**/daemon/**" --platform=linux \
---icon=src/assets/img/Chia.icns --overwrite --app-bundle-id=net.melati.blockchain \
+--icon=src/assets/img/Melati.icns --overwrite --app-bundle-id=net.melati.blockchain \
 --appVersion=$MELATI_INSTALLER_VERSION
 LAST_EXIT_CODE=$?
 if [ "$LAST_EXIT_CODE" -ne 0 ]; then

@@ -34,15 +34,15 @@ pip install pyinstaller==4.2
 pip install setuptools_scm
 
 Write-Output "   ---"
-Write-Output "Get CHIA_INSTALLER_VERSION"
-# The environment variable CHIA_INSTALLER_VERSION needs to be defined
-$env:CHIA_INSTALLER_VERSION = python .\build_scripts\installer-version.py -win
+Write-Output "Get MELATI_INSTALLER_VERSION"
+# The environment variable MELATI_INSTALLER_VERSION needs to be defined
+$env:MELATI_INSTALLER_VERSION = python .\build_scripts\installer-version.py -win
 
-if (-not (Test-Path env:CHIA_INSTALLER_VERSION)) {
-  $env:CHIA_INSTALLER_VERSION = '0.0.0'
-  Write-Output "WARNING: No environment variable CHIA_INSTALLER_VERSION set. Using 0.0.0"
+if (-not (Test-Path env:MELATI_INSTALLER_VERSION)) {
+  $env:MELATI_INSTALLER_VERSION = '0.0.0'
+  Write-Output "WARNING: No environment variable MELATI_INSTALLER_VERSION set. Using 0.0.0"
   }
-Write-Output "Chia Version is: $env:CHIA_INSTALLER_VERSION"
+Write-Output "Melati Version is: $env:MELATI_INSTALLER_VERSION"
 Write-Output "   ---"
 
 Write-Output "   ---"
@@ -102,14 +102,14 @@ Write-Output "Increase the stack for melati command for (melati plots create) me
 editbin.exe /STACK:8000000 daemon\melati.exe
 Write-Output "   ---"
 
-$packageVersion = "$env:CHIA_INSTALLER_VERSION"
-$packageName = "Chia-$packageVersion"
+$packageVersion = "$env:MELATI_INSTALLER_VERSION"
+$packageName = "Melati-$packageVersion"
 
 Write-Output "packageName is $packageName"
 
 Write-Output "   ---"
 Write-Output "electron-packager"
-electron-packager . Chia --asar.unpack="**\daemon\**" --overwrite --icon=.\src\assets\img\melati.ico --app-version=$packageVersion
+electron-packager . Melati --asar.unpack="**\daemon\**" --overwrite --icon=.\src\assets\img\melati.ico --app-version=$packageVersion
 Write-Output "   ---"
 
 Write-Output "   ---"
@@ -123,8 +123,8 @@ If ($env:HAS_SECRET) {
    Write-Output "   ---"
    Write-Output "Add timestamp and verify signature"
    Write-Output "   ---"
-   signtool.exe timestamp /v /t http://timestamp.comodoca.com/ .\release-builds\windows-installer\ChiaSetup-$packageVersion.exe
-   signtool.exe verify /v /pa .\release-builds\windows-installer\ChiaSetup-$packageVersion.exe
+   signtool.exe timestamp /v /t http://timestamp.comodoca.com/ .\release-builds\windows-installer\MelatiSetup-$packageVersion.exe
+   signtool.exe verify /v /pa .\release-builds\windows-installer\MelatiSetup-$packageVersion.exe
    }   Else    {
    Write-Output "Skipping timestamp and verify signatures - no authorization to install certificates"
 }
