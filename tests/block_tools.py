@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Callable, Dict, List, Optional, Tuple, Any
 
 from blspy import AugSchemeMPL, G1Element, G2Element, PrivateKey
-from melatibip158 import PyBIP158
+from chiabip158 import PyBIP158
 
 from melati.cmds.init_funcs import create_all_ssl, create_default_melati_config
 from melati.full_node.bundle_tools import (
