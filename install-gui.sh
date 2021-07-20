@@ -38,7 +38,7 @@ if [ "$(uname)" = "Linux" ]; then
 	elif type yum && [ -f /etc/rocky-release ]; then
                 # RockyLinux
                 echo "Installing on RockyLinux"
-                dnf module enable nodejs:12
+                sudo dnf module enable nodejs:12
                 sudo dnf install -y nodejs
         fi
 
