@@ -11,7 +11,7 @@ from melati.types.blockchain_format.coin import Coin
 from melati.types.blockchain_format.program import Program
 from melati.types.blockchain_format.sized_bytes import bytes32
 from melati.types.spend_bundle import SpendBundle
-from melati.types.coin_solution import CoinSolution
+from melati.types.coin_spend import CoinSpend
 from melati.util.byte_types import hexstr_to_bytes
 from melati.util.db_wrapper import DBWrapper
 from melati.util.hash import std_hash
@@ -360,14 +360,14 @@ class TradeManager:
         if trade_offer is not None:
             offer_spend_bundle: SpendBundle = trade_offer.spend_bundle
 
-        coinsols: List[CoinSolution] = []  # [] of CoinSolutions
-        cc_coinsol_outamounts: Dict[bytes32, List[Tuple[CoinSolution, int]]] = dict()
+        coinsols: List[CoinSpend] = []  # [] of CoinSpends
+        cc_coinsol_outamounts: Dict[bytes32, List[Tuple[CoinSpend, int]]] = dict()
         aggsig = offer_spend_bundle.aggregated_signature
         cc_discrepancies: Dict[bytes32, int] = dict()
         melati_discrepancy = None
         wallets: Dict[bytes32, Any] = dict()  # colour to wallet dict
 
-        for coinsol in offer_spend_bundle.coin_solutions:
+        for coinsol in offer_spend_bundle.coin_spends:
             puzzle: Program = Program.from_bytes(bytes(coinsol.puzzle_reveal))
             solution: Program = Program.from_bytes(bytes(coinsol.solution))
 
@@ -414,7 +414,7 @@ class TradeManager:
             )
             if melati_spend_bundle is not None:
                 for coinsol in coinsols:
-                    melati_spend_bundle.coin_solutions.append(coinsol)
+                    melati_spend_bundle.coin_spends.append(coinsol)
 
         zero_spend_list: List[SpendBundle] = []
         spend_bundle = None
@@ -649,3 +649,4 @@ class TradeManager:
             await self.wallet_state_manager.add_transaction(tx)
 
         return True, trade_record, None
+

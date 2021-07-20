@@ -188,7 +188,7 @@ def parse_seconds(args: SExp, safe_mode: bool, error_code: Err) -> Optional[List
 def parse_height(args: SExp, safe_mode: bool, error_code: Err) -> Optional[List[bytes]]:
     height_int = sanitize_int(args.first(), safe_mode)
     # this condition is inherently satisified, there is no need to keep it
-    if height_int <= 0:
+    if height_int < 0:
         return None
     if height_int >= 2 ** 32:
         raise ValidationError(error_code)
@@ -414,3 +414,4 @@ def mempool_check_conditions_dict(
                 return error
 
     return None
+

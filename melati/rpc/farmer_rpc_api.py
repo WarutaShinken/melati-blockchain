@@ -121,3 +121,4 @@ class FarmerRpcApi:
         if login_link is None:
             raise ValueError(f"Failed to generate login link for {launcher_id.hex()}")
         return {"login_link": login_link}
+

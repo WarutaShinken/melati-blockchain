@@ -18,6 +18,8 @@ from melati.protocols.pool_protocol import (
 )
 from melati.protocols.protocol_message_types import ProtocolMessageTypes
 from melati.server.outbound_message import NodeType, make_msg
+from melati.server.server import ssl_context_for_root
+from melati.ssl.create_ssl import get_mozilla_ca_crt
 from melati.types.blockchain_format.pool_target import PoolTarget
 from melati.types.blockchain_format.proof_of_space import ProofOfSpace
 from melati.util.api_decorators import api_request, peer_required
@@ -218,7 +220,12 @@ class FarmerAPI:
                 }
                 try:
                     async with aiohttp.ClientSession() as session:
-                        async with session.post(f"{pool_url}/partial", data=post_partial_body, headers=headers) as resp:
+                        async with session.post(
+                            f"{pool_url}/partial",
+                            data=post_partial_body,
+                            headers=headers,
+                            ssl=ssl_context_for_root(get_mozilla_ca_crt()),
+                        ) as resp:
                             if resp.ok:
                                 pool_response: Dict = json.loads(await resp.text())
                                 self.farmer.log.info(f"Pool response: {pool_response}")
@@ -484,3 +491,4 @@ class FarmerAPI:
     @api_request
     async def respond_plots(self, _: harvester_protocol.RespondPlots):
         self.farmer.log.warning("Respond plots came too late")
+

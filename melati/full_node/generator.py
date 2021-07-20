@@ -10,10 +10,10 @@ GENERATOR_MOD = get_generator()
 
 DECOMPRESS_BLOCK = load_clvm("block_program_zero.clvm", package_or_requirement="melati.wallet.puzzles")
 DECOMPRESS_PUZZLE = load_clvm("decompress_puzzle.clvm", package_or_requirement="melati.wallet.puzzles")
-# DECOMPRESS_CSE = load_clvm("decompress_coin_solution_entry.clvm", package_or_requirement="melati.wallet.puzzles")
+# DECOMPRESS_CSE = load_clvm("decompress_coin_spend_entry.clvm", package_or_requirement="melati.wallet.puzzles")
 
 DECOMPRESS_CSE_WITH_PREFIX = load_clvm(
-    "decompress_coin_solution_entry_with_prefix.clvm", package_or_requirement="melati.wallet.puzzles"
+    "decompress_coin_spend_entry_with_prefix.clvm", package_or_requirement="melati.wallet.puzzles"
 )
 log = logging.getLogger(__name__)
 
@@ -71,3 +71,4 @@ def run_generator_unsafe(self: BlockGenerator, max_cost: int) -> Tuple[int, Seri
     """This mode is meant for accepting possibly soft-forked transactions into the mempool"""
     program, args = setup_generator_args(self)
     return GENERATOR_MOD.run_with_cost(max_cost, program, args)
+
