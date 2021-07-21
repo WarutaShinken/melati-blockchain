@@ -2,6 +2,7 @@
 
 ![Alt text](https://pbs.twimg.com/profile_banners/1414817722559467521/1626153982/1080x360)
 
-Mainnet is launch, but only cli is working. Gui will launch soon
+The main network is running
 
-discord https://discord.gg/Gtfn6gCy
+discord https://discord.gg/VDGmfmwPsX
+twitter https://twitter.com/MelatiNetwork
