@@ -6,3 +6,5 @@
 [submodule "melati-blockchain-gui"]
 	path = melati-blockchain-gui
 	url = https://github.com/Melati-Network/melati-blockchain-gui
+[submodule "melati-blockchain"]
+	branch = main
