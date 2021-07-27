@@ -20,8 +20,8 @@ def init_cmd(ctx: click.Context, create_certs: str):
     - Shut down all melati daemon processes with `melati stop all -d`
     - Run `melati init -c [directory]` on your remote harvester,
       where [directory] is the the copy of your Farming Machine CA directory
-    - Get more details on remote harvester on Chia wiki:
-      https://github.com/Chia-Network/melati-blockchain/wiki/Farming-on-many-machines
+    - Get more details on remote harvester on Melati wiki:
+      https://github.com/Melati-Network/melati-blockchain/wiki/Farming-on-many-machines
     """
     from pathlib import Path
     from .init_funcs import init
