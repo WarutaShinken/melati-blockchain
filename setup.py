@@ -42,9 +42,9 @@ dev_dependencies = [
 
 kwargs = dict(
     name="melati-blockchain",
-    author="Mariano Sorgente",
-    author_email="mariano@melati.net",
-    description="Chia blockchain full node, farmer, timelord, and wallet.",
+    author="Rifo Syah Putra",
+    author_email="rifo@melatinetwork.org",
+    description="Melati blockchain full node, farmer, timelord, and wallet.",
     url="https://melatinetwork.org/",
     license="Apache License",
     python_requires=">=3.7, <4",
