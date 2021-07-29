@@ -18,7 +18,7 @@ sudo apt-get upgrade -y
 sudo apt install git -y
 
 # Checkout the source and install
-git clone https://github.com/Melati-Network/Melati-blockchain.git -b latest --recurse-submodules
+git clone https://github.com/Melati-Network/Melati-blockchain.git
 
 cd melati-blockchain
 
