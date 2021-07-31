@@ -208,4 +208,3 @@ class FullNodeRpcClient(RpcClient):
                 }
         except Exception:
             return None
-

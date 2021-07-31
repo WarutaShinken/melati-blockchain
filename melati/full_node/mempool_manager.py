@@ -5,9 +5,10 @@ import logging
 import time
 from concurrent.futures.process import ProcessPoolExecutor
 from typing import Dict, List, Optional, Set, Tuple
-from blspy import AugSchemeMPL, G1Element
+from blspy import G1Element
 from chiabip158 import PyBIP158
 
+from melati.util import cached_bls
 from melati.consensus.block_record import BlockRecord
 from melati.consensus.constants import ConsensusConstants
 from melati.consensus.cost_calculator import NPCResult, calculate_cost_of_program
@@ -57,7 +58,7 @@ class MempoolManager:
         self.coin_store = coin_store
 
         # The fee per cost must be above this amount to consider the fee "nonzero", and thus able to kick out other
-        # transactions. This prevents spam. This is equivalent to 0.055 XCH per block, or about 0.00005 XCH for two
+        # transactions. This prevents spam. This is equivalent to 0.055 XMX per block, or about 0.00005 XMX for two
         # spends.
         self.nonzero_fee_minimum_fpc = 5
 
@@ -167,7 +168,7 @@ class MempoolManager:
 
     @staticmethod
     def get_min_fee_increase() -> int:
-        # 0.00001 XCH
+        # 0.00001 XMX
         return 10000000
 
     def can_replace(
@@ -427,7 +428,7 @@ class MempoolManager:
 
         if validate_signature:
             # Verify aggregated signature
-            if not AugSchemeMPL.aggregate_verify(pks, msgs, new_spend.aggregated_signature):
+            if not cached_bls.aggregate_verify(pks, msgs, new_spend.aggregated_signature, True):
                 log.warning(f"Aggsig validation error {pks} {msgs} {new_spend}")
                 return None, MempoolInclusionStatus.FAILED, Err.BAD_AGGREGATE_SIGNATURE
         # Remove all conflicting Coins and SpendBundles

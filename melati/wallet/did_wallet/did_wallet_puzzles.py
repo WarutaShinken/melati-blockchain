@@ -96,4 +96,3 @@ def check_is_did_puzzle(puzzle: Program):
         return r
     inner_f, args = r
     return is_did_core(inner_f)
-

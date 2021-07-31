@@ -428,4 +428,3 @@ def pool_state_to_inner_puzzle(
             delay_time,
             delay_ph,
         )
-

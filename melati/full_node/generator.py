@@ -71,4 +71,3 @@ def run_generator_unsafe(self: BlockGenerator, max_cost: int) -> Tuple[int, Seri
     """This mode is meant for accepting possibly soft-forked transactions into the mempool"""
     program, args = setup_generator_args(self)
     return GENERATOR_MOD.run_with_cost(max_cost, program, args)
-

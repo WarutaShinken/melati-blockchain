@@ -286,8 +286,8 @@ class WalletRpcApi:
             return False, False
 
         config: Dict = load_config(new_root, "config.yaml")
-        farmer_target = config["farmer"].get("xch_target_address")
-        pool_target = config["pool"].get("xch_target_address")
+        farmer_target = config["farmer"].get("xmx_target_address")
+        pool_target = config["pool"].get("xmx_target_address")
         found_farmer = False
         found_pool = False
         selected = config["selected_network"]
@@ -795,7 +795,7 @@ class WalletRpcApi:
         wallet: CCWallet = self.service.wallet_state_manager.wallets[wallet_id]
         puzzle_hash: bytes32 = decode_puzzle_hash(request["inner_address"])
 
-        if not isinstance(request["amount"], int) or not isinstance(request["amount"], int):
+        if not isinstance(request["amount"], int) or not isinstance(request["fee"], int):
             raise ValueError("An integer amount or fee is required (too many decimals)")
         amount: uint64 = uint64(request["amount"])
         if "fee" in request:
@@ -804,7 +804,7 @@ class WalletRpcApi:
             fee = uint64(0)
         async with self.service.wallet_state_manager.lock:
             tx: TransactionRecord = await wallet.generate_signed_transaction([amount], [puzzle_hash], fee)
-            await wallet.push_transaction(tx)
+            await wallet.standard_wallet.push_transaction(tx)
 
         return {
             "transaction": tx,

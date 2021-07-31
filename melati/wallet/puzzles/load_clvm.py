@@ -35,4 +35,3 @@ def load_serialized_clvm(clvm_filename, package_or_requirement=__name__) -> Seri
 
 def load_clvm(clvm_filename, package_or_requirement=__name__) -> Program:
     return Program.from_bytes(bytes(load_serialized_clvm(clvm_filename, package_or_requirement=package_or_requirement)))
-

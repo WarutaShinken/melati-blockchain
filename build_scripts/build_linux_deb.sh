@@ -33,7 +33,7 @@ mkdir dist
 
 echo "Create executables with pyinstaller"
 pip install pyinstaller==4.2
-SPEC_FILE=$(python -c 'import melati; print(MELATI.PYINSTALLER_SPEC_PATH)')
+SPEC_FILE=$(python -c 'import melati; print(melati.PYINSTALLER_SPEC_PATH)')
 pyinstaller --log-level=INFO "$SPEC_FILE"
 LAST_EXIT_CODE=$?
 if [ "$LAST_EXIT_CODE" -ne 0 ]; then
@@ -55,10 +55,18 @@ if [ "$LAST_EXIT_CODE" -ne 0 ]; then
 	exit $LAST_EXIT_CODE
 fi
 
+# sets the version for melati-blockchain in package.json
+cp package.json package.json.orig
+jq --arg VER "$MELATI_INSTALLER_VERSION" '.version=$VER' package.json > temp.json && mv temp.json package.json
+
 electron-packager . melati-blockchain --asar.unpack="**/daemon/**" --platform=linux \
 --icon=src/assets/img/Melati.icns --overwrite --app-bundle-id=net.melati.blockchain \
 --appVersion=$MELATI_INSTALLER_VERSION
 LAST_EXIT_CODE=$?
+
+# reset the package.json to the original
+mv package.json.orig package.json
+
 if [ "$LAST_EXIT_CODE" -ne 0 ]; then
 	echo >&2 "electron-packager failed!"
 	exit $LAST_EXIT_CODE

@@ -1017,4 +1017,3 @@ class DIDWallet:
         wallet_info = WalletInfo(current_info.id, current_info.name, current_info.type, data_str)
         self.wallet_info = wallet_info
         await self.wallet_state_manager.user_store.update_wallet(wallet_info, in_transaction)
-

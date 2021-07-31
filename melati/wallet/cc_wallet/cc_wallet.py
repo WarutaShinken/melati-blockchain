@@ -221,7 +221,7 @@ class CCWallet:
         removal_amount = 0
 
         for record in unconfirmed_tx:
-            if record.type is TransactionType.INCOMING_TX:
+            if TransactionType(record.type) is TransactionType.INCOMING_TX:
                 addition_amount += record.amount
             else:
                 removal_amount += record.amount
@@ -745,4 +745,3 @@ class CCWallet:
 
         aggsig = AugSchemeMPL.aggregate(sigs)
         return SpendBundle(list_of_solutions, aggsig)
-

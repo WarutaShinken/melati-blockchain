@@ -121,9 +121,6 @@ python -m pip install -e . --extra-index-url https://pypi.chia.net/simple/
 
 echo ""
 echo "Melati blockchain install.sh complete."
-
-echo "Try the Quick Start Guide to running melati-blockchain:"
-echo "https://github.com/Melati-Network/melati-blockchain/wiki/Quick-Start-Guide"
 echo ""
 echo "To install the GUI type 'sh install-gui.sh' after '. ./activate'."
 echo ""

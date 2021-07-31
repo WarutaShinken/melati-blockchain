@@ -130,4 +130,3 @@ def detect_potential_template_generator(block_height: uint32, program: Serialize
         return CompressorArg(block_height, program, start, end)
     else:
         return None
-

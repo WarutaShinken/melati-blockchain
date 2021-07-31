@@ -107,7 +107,7 @@ harvester:
 
 pool:
   # Replace this with a real puzzle hash
-  # xmx_target_address: txch102gkhhzs60grx7cfnpng5n6rjecr89r86l5s8xux2za8k820cxsq64ssdg
+  # xmx_target_address: txmx102gkhhzs60grx7cfnpng5n6rjecr89r86l5s8xux2za8k820cxsq64ssdg
   logging: *logging
   network_overrides: *network_overrides
   selected_network: *selected_network
@@ -127,7 +127,7 @@ farmer:
   pool_public_keys: []
 
   # Replace this with a real puzzle hash
-  # xmx_target_address: txch102gkhhzs60grx7cfnpng5n6rjecr89r86l5s8xux2za8k820cxsq64ssdg
+  # xmx_target_address: txmx102gkhhzs60grx7cfnpng5n6rjecr89r86l5s8xux2za8k820cxsq64ssdg
 
   # If True, starts an RPC server at the following port
   start_rpc_server: True
@@ -258,7 +258,7 @@ full_node:
   # List of trusted DNS seeders to bootstrap from.
   # If you modify this, please change the hardcode as well from FullNode.set_server()
   dns_servers:
-    - "dns-introducer.melatinetwork.org"
+    - "dns-introducer.melatinetwork.net"
   farmer_peer:
       host: *self_hostname
       port: 2447
@@ -266,7 +266,7 @@ full_node:
       host: *self_hostname
       port: 2446
   introducer_peer:
-      host: introducer.melatinetwork.org  # Chia AWS introducer IPv4/IPv6
+      host: introducer.melatinetwork.net  # Melati AWS introducer IPv4/IPv6
       port: 2444
   wallet_peer:
     host: *self_hostname
@@ -350,7 +350,7 @@ wallet:
   recent_peer_threshold: 6000
 
   introducer_peer:
-    host: introducer.melatinetwork.org # Chia AWS introducer IPv4/IPv6
+    host: introducer.melatinetwork.org # Melati AWS introducer IPv4/IPv6
     port: 2444
 
   ssl:
