@@ -1,10 +1,10 @@
 from setuptools import setup
 
 dependencies = [
-    "blspy==1.0.5",  # Signature library
+    "blspy==1.0.4",  # Signature library
     "chiavdf==1.0.2",  # timelord and vdf verification
     "chiabip158==1.0",  # bip158-style wallet filters
-    "chiapos==1.0.4",  # proof of space
+    "chiapos==1.0.3",  # proof of space
     "clvm==0.9.7",
     "clvm_rs==0.1.8",
     "clvm_tools==0.4.3",
@@ -35,7 +35,6 @@ dev_dependencies = [
     "pytest-asyncio",
     "flake8",
     "mypy",
-    "debugpy",
     "black",
     "aiohttp_cors",  # For blackd
     "ipython",  # For asyncio debugging
@@ -43,9 +42,9 @@ dev_dependencies = [
 
 kwargs = dict(
     name="melati-blockchain",
-    author="Rifo Syah Putra",
-    author_email="rifo@melatinetwork.org",
-    description="Melati blockchain full node, farmer, timelord, and wallet.",
+    author="Mariano Sorgente",
+    author_email="mariano@melati.net",
+    description="Chia blockchain full node, farmer, timelord, and wallet.",
     url="https://melatinetwork.org/",
     license="Apache License",
     python_requires=">=3.7, <4",
