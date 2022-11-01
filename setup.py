@@ -7,7 +7,7 @@ dependencies = [
     "chiapos==1.0.3",  # proof of space
     "clvm==0.9.7",
     "clvm_rs==0.1.8",
-    "clvm_tools==0.4.3",
+    "clvm_tools==0.4.6",
     "aiohttp==3.7.4",  # HTTP server for full node rpc
     "aiosqlite==0.17.0",  # asyncio wrapper for sqlite, to store blocks
     "bitstring==3.1.7",  # Binary data management library
